@@ -10,12 +10,12 @@ import {
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
-  authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
-  projectId: 'crwn-clothing-db-98d4d',
-  storageBucket: 'crwn-clothing-db-98d4d.appspot.com',
-  messagingSenderId: '626766232035',
-  appId: '1:626766232035:web:506621582dab103a4d08d6',
+  apiKey: "AIzaSyD9nHp2Cyklbpl6LGBtngkS2k13Qzv4tN4",
+  authDomain: "vrwn-clothing-db-487df.firebaseapp.com",
+  projectId: "vrwn-clothing-db-487df",
+  storageBucket: "vrwn-clothing-db-487df.appspot.com",
+  messagingSenderId: "935413755969",
+  appId: "1:935413755969:web:588588117c31015199d6c0"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -29,8 +29,6 @@ googleProvider.setCustomParameters({
 export const auth = getAuth();
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
-export const signInWithGoogleRedirect = () =>
-  signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
 
@@ -64,13 +62,15 @@ export const createUserDocumentFromAuth = async (
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
-
+  if (!email || !password) {
+    throw new Error('Email and password are required');
+  }
   return await createUserWithEmailAndPassword(auth, email, password);
 };
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
-
+  if (!email || !password) {
+    throw new Error('Email and password are required');
+  }
   return await signInWithEmailAndPassword(auth, email, password);
 };
