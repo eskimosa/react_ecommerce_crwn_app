@@ -1,1 +1,1 @@
-export const selectCurrentUser = (state) => state.user.selectCurrentUser;
+export const selectCategoriesMap = (state) => state.categories.categoriesMap;
