@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     currentUser: null
 }
 
-export const userReducer = (state = INITIAL_STATE, action) => {
+export const userReducer = (state = INITIAL_STATE, action = {}) => {
     const { type, payload } = action;
 
     switch (type) {
@@ -14,6 +14,6 @@ export const userReducer = (state = INITIAL_STATE, action) => {
                 currentUser: payload
             }
         default:
-            throw new Error(`Undandled type ${type} in userReducer`);
+            return state;
     }
 };
